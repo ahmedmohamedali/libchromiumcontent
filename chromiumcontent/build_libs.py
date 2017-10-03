@@ -281,6 +281,7 @@ with open(args.out, 'w') as out:
         [
 	    "third_party/WebKit/Source/core/animation",
 	    "third_party/WebKit/Source/core/clipboard",
+	    "third_party/WebKit/Source/core/context_features",
 	    "third_party/WebKit/Source/core/core",
 	    "third_party/WebKit/Source/core/core_generated",
         ])
@@ -293,8 +294,10 @@ with open(args.out, 'w') as out:
 	    "third_party/WebKit/Source/core/dom",
 	    "third_party/WebKit/Source/core/editing",
 	    "third_party/WebKit/Source/core/events",
+	    "third_party/WebKit/Source/core/exported",
 	    "third_party/WebKit/Source/core/fileapi",
 	    "third_party/WebKit/Source/core/frame",
+	    "third_party/WebKit/Source/core/fullscreen",
 	    "third_party/WebKit/Source/core/geometry",
         ])
 
@@ -306,6 +309,7 @@ with open(args.out, 'w') as out:
 	    "third_party/WebKit/Source/core/imagebitmap",
 	    "third_party/WebKit/Source/core/input",
 	    "third_party/WebKit/Source/core/inspector",
+	    "third_party/WebKit/Source/core/intersection_observer",
         ])
 
     gen_list(
@@ -327,10 +331,13 @@ with open(args.out, 'w') as out:
 	    "third_party/WebKit/Source/core/paint",
 	    "third_party/WebKit/Source/core/plugins",
 	    "third_party/WebKit/Source/core/probe",
+	    "third_party/WebKit/Source/core/resize_observer",
 	    "third_party/WebKit/Source/core/streams",
 	    "third_party/WebKit/Source/core/style",
 	    "third_party/WebKit/Source/core/svg",
 	    "third_party/WebKit/Source/core/timing",
+	    "third_party/WebKit/Source/core/typed_arrays",
+	    "third_party/WebKit/Source/core/url",
 	    "third_party/WebKit/Source/core/workers",
 	    "third_party/WebKit/Source/core/xml",
 	    "third_party/WebKit/Source/core/xmlhttprequest",
