@@ -96,25 +96,24 @@ index ea628e0..1b521f8 100644
 --- a/gni/v8.gni
 +++ b/gni/v8.gni
 @@ -4,6 +4,7 @@
- 
  import("//build/config/sanitizers/sanitizers.gni")
  import("//build/config/v8_target_cpu.gni")
+ import("//build/split_static_library.gni")
 +import("//chromiumcontent/config.gni")
  
  declare_args() {
-   # Includes files needed for correctness fuzzing.
-@@ -139,7 +140,13 @@ template("v8_executable") {
- }
+   # Set flags for tracking code coverage. Uses gcov with gcc and sanitizer
+@@ -139,6 +140,13 @@ template("v8_executable") {
  
  template("v8_component") {
--  component(target_name) {
-+  if (is_electron_build && !is_component_build &&
-+      (target_name == "v8_libbase" || target_name == "v8_libplatform")) {
-+    v8_component = "source_set"
-+  } else {
-+    v8_component = component_electron
-+  }
-+  target(v8_component, target_name) {
+   component(target_name) {
++    if (is_electron_build && !is_component_build) {
++      if (target_name == "v8_libbase" || target_name == "v8_libplatform") {
++        static_component_type = "source_set"
++      } else {
++        static_component_type = component_electron
++      }
++    }
      forward_variables_from(invoker, "*", [ "configs" ])
      configs += invoker.configs
      configs -= v8_remove_configs

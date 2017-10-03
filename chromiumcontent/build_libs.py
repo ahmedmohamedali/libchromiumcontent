@@ -137,6 +137,8 @@ with open(args.out, 'w') as out:
             "components/leveldb",
             "components/link_header_util",
             "components/memory_coordinator",
+            "components/metrics/public/interfaces",
+            "components/metrics/single_sample_metrics",
             "components/mime_util",
             "components/mus/clipboard",
             "components/mus/common",
@@ -144,6 +146,7 @@ with open(args.out, 'w') as out:
             "components/mus/gpu",
             "components/mus/input_devices",
             "components/mus/public",
+            "components/network_session_configurator/common",
             "components/os_crypt",
             "components/payments",
             "components/prefs",
@@ -156,7 +159,11 @@ with open(args.out, 'w') as out:
             "components/tracing/tracing",
             "components/url_formatter",
             "components/variations",
-            "components/viz/frame_sinks/frame_sinks",
+            "components/viz/client",
+            "components/viz/common",
+            "components/viz/hit_test",
+            "components/viz/host",
+            "components/viz/service/service",
             "components/webcrypto",
             "components/webmessaging",
         ])
@@ -200,12 +207,16 @@ with open(args.out, 'w') as out:
             "services/data_decoder",
             "services/device",
             "services/file",
+            "services/metrics/public",
             "services/resource_coordinator",
+            "services/service_manager/background",
             "services/service_manager/embedder",
-            "services/service_manager/public/cpp/sources",
+            "services/service_manager/public/cpp/cpp",
+            "services/service_manager/public/cpp/cpp_types",
             "services/service_manager/public/interfaces",
             "services/service_manager/runner",
             "services/service_manager/service_manager",
+            "services/service_manager/standalone",
             "services/shape_detection",
             "services/shell/public",
             "services/shell/runner",
@@ -214,6 +225,8 @@ with open(args.out, 'w') as out:
             "services/ui/public",
             "services/ui/gpu",
             "services/user",
+            "services/video_capture",
+            "services/viz/hit_test/public/interfaces",
         ] + additional_services)
 
     gen_list(
@@ -252,12 +265,13 @@ with open(args.out, 'w') as out:
         "obj_webkit",
         [
             "third_party/WebKit/public",
+            "third_party/WebKit/Source/controller",
             "third_party/WebKit/Source/platform/heap",
             "third_party/WebKit/Source/platform/blink_common",
             "third_party/WebKit/Source/platform/loader",
             "third_party/WebKit/Source/platform/mojo",
             "third_party/WebKit/Source/platform/platform",
-            "third_party/WebKit/Source/platform/wtf/platform_wtf",
+            "third_party/WebKit/Source/platform/wtf",
             "third_party/WebKit/Source/web",
         ])
 
@@ -267,6 +281,7 @@ with open(args.out, 'w') as out:
         [
 	    "third_party/WebKit/Source/core/animation",
 	    "third_party/WebKit/Source/core/clipboard",
+	    "third_party/WebKit/Source/core/context_features",
 	    "third_party/WebKit/Source/core/core",
 	    "third_party/WebKit/Source/core/core_generated",
         ])
@@ -279,19 +294,22 @@ with open(args.out, 'w') as out:
 	    "third_party/WebKit/Source/core/dom",
 	    "third_party/WebKit/Source/core/editing",
 	    "third_party/WebKit/Source/core/events",
-	    "third_party/WebKit/Source/core/fileapi",
-	    "third_party/WebKit/Source/core/frame",
-	    "third_party/WebKit/Source/core/geometry",
+	    "third_party/WebKit/Source/core/exported",
         ])
 
     gen_list(
         out,
         "obj_webkitcore3",
         [
+	    "third_party/WebKit/Source/core/fileapi",
+	    "third_party/WebKit/Source/core/frame",
+	    "third_party/WebKit/Source/core/fullscreen",
+	    "third_party/WebKit/Source/core/geometry",
 	    "third_party/WebKit/Source/core/html",
 	    "third_party/WebKit/Source/core/imagebitmap",
 	    "third_party/WebKit/Source/core/input",
 	    "third_party/WebKit/Source/core/inspector",
+	    "third_party/WebKit/Source/core/intersection_observer",
         ])
 
     gen_list(
@@ -313,10 +331,13 @@ with open(args.out, 'w') as out:
 	    "third_party/WebKit/Source/core/paint",
 	    "third_party/WebKit/Source/core/plugins",
 	    "third_party/WebKit/Source/core/probe",
+	    "third_party/WebKit/Source/core/resize_observer",
 	    "third_party/WebKit/Source/core/streams",
 	    "third_party/WebKit/Source/core/style",
 	    "third_party/WebKit/Source/core/svg",
 	    "third_party/WebKit/Source/core/timing",
+	    "third_party/WebKit/Source/core/typed_arrays",
+	    "third_party/WebKit/Source/core/url",
 	    "third_party/WebKit/Source/core/workers",
 	    "third_party/WebKit/Source/core/xml",
 	    "third_party/WebKit/Source/core/xmlhttprequest",
@@ -334,13 +355,6 @@ with open(args.out, 'w') as out:
         "obj_webkitmodules",
         [
             "third_party/WebKit/Source/modules",
-        ])
-
-    gen_list(
-        out,
-        "obj_webkitwtf",
-        [
-            "third_party/WebKit/Source/wtf",
         ])
 
     gen_list(
