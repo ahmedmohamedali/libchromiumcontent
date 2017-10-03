@@ -295,16 +295,16 @@ with open(args.out, 'w') as out:
 	    "third_party/WebKit/Source/core/editing",
 	    "third_party/WebKit/Source/core/events",
 	    "third_party/WebKit/Source/core/exported",
-	    "third_party/WebKit/Source/core/fileapi",
-	    "third_party/WebKit/Source/core/frame",
-	    "third_party/WebKit/Source/core/fullscreen",
-	    "third_party/WebKit/Source/core/geometry",
         ])
 
     gen_list(
         out,
         "obj_webkitcore3",
         [
+	    "third_party/WebKit/Source/core/fileapi",
+	    "third_party/WebKit/Source/core/frame",
+	    "third_party/WebKit/Source/core/fullscreen",
+	    "third_party/WebKit/Source/core/geometry",
 	    "third_party/WebKit/Source/core/html",
 	    "third_party/WebKit/Source/core/imagebitmap",
 	    "third_party/WebKit/Source/core/input",
