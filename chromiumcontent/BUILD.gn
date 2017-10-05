@@ -225,6 +225,7 @@ if (is_electron_build && !is_component_build) {
       ":webkitcore3",
       ":webkitcore4",
       ":webkitcore5",
+      ":webkitcore6",
       ":webkitmodules",
       ":webrtc",
       ":v8",
@@ -372,6 +373,14 @@ if (is_electron_build && !is_component_build) {
     sources = []
     if (defined(obj_webkitcore5)) {
       sources += obj_webkitcore5
+    }
+  }
+
+  static_library("webkitcore6") {
+    complete_static_lib = true
+    sources = []
+    if (defined(obj_webkitcore6)) {
+      sources += obj_webkitcore6
     }
   }
 
